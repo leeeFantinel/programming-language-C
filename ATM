@@ -1,67 +1,65 @@
 //#include <stdio.h>
 //#include <stdlib.h>
-float sacar(float saldo, float valor){
-	saldo -= valor;
-	return saldo;
+float withdraw(float balance, float amount){
+    balance -= amount;
+    return balance;
 }
-float depositar(float saldo, float valor){
-	saldo += valor;
-	return saldo;
+float deposit(float balance, float amount){
+    balance += amount;
+    return balance;
 }
-
 
 int main(int argc, char *argv[]) {
-   float saldo, valor;
-   int op; 
-   do{
-   printf("Insira seu saldo: ");
-   scanf("%f", &saldo); 
-   if(saldo < 100){
-   	    printf("\nSeu depósito não poderá ser menor que R$100.00.\n");
-   	}
-	}while(saldo < 100);
-   	
-   do{
-   	printf("\n\n----------------------------------------\n\n");
-   	printf("\nEscolha: \n1 - Depositar \n2 - Sacar \n3 - Ver saldo \n0 - Sair \n--> ");
-   	scanf("%d", &op);
-	system("cls");	 
-   switch(op){
-   	case 1: 
-   		system("cls");
-   	    printf("\n----DEPOSITAR----\n");
-   	    printf("Digite o valor do depósito: ");
-   	    scanf("%f", &valor);
-		saldo = depositar(saldo, valor);
-		printf("Operação finalizada.");
-	    
-   	break;
-   	case 2: 
-   		system("cls");
-   		printf("\n----SACAR----\n");
-   		printf("Digite o valor do saque: ");
-   		scanf("%f", &valor);
-   		if(saldo<0){
-   			printf("\nVocê não poderá ficar negativado.\n");
-	   }else{
-		saldo = sacar(saldo, valor);
-		printf("Operação finalizada.");	
-		}
-   	break;
-   	case 3: 
-   	    system("cls");
-   		printf("\n----VER SALDO----\n");
-   		printf("Saldo R$ %.2f", saldo);
-   		printf("\nOperação finalizada.");
-   	break;
-   	case 0: 
-   	    system("cls");
-   		printf("\n----Obrigado(a), volte sempre!----\n");
-   	break;
-   	default:
-   		system("cls");
-   		printf("\nOpção Inválida\n");
-   }
-}while(op!=0);
-return 0;
+    float balance, amount;
+    int option; 
+    do{
+        printf("Enter your balance: ");
+        scanf("%f", &balance); 
+        if(balance < 100){
+            printf("\nYour deposit cannot be less than $100.00.\n");
+        }
+    }while(balance < 100);
+    
+    do{
+        printf("\n\n----------------------------------------\n\n");
+        printf("\nChoose: \n1 - Deposit \n2 - Withdraw \n3 - Check balance \n0 - Exit \n--> ");
+        scanf("%d", &option);
+        system("cls");     
+        switch(option){
+            case 1: 
+                system("cls");
+                printf("\n----DEPOSIT----\n");
+                printf("Enter the deposit amount: ");
+                scanf("%f", &amount);
+                balance = deposit(balance, amount);
+                printf("Operation completed.");
+            break;
+            case 2: 
+                system("cls");
+                printf("\n----WITHDRAW----\n");
+                printf("Enter the withdrawal amount: ");
+                scanf("%f", &amount);
+                if(balance < 0){
+                    printf("\nYou cannot go into negative balance.\n");
+                }else{
+                    balance = withdraw(balance, amount);
+                    printf("Operation completed.");
+                }
+            break;
+            case 3: 
+                system("cls");
+                printf("\n----CHECK BALANCE----\n");
+                printf("Balance $ %.2f", balance);
+                printf("\nOperation completed.");
+            break;
+            case 0: 
+                system("cls");
+                printf("\n----Thank you, come again!----\n");
+            break;
+            default:
+                system("cls");
+                printf("\nInvalid option\n");
+        }
+    }while(option != 0);
+    return 0;
 }
