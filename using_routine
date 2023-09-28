@@ -2,93 +2,94 @@
 //#include <stdlib.h>
 //#include <locale.h>
 
-int somar(int n1, int n2){
-	int somar = n1 + n2;
-	return somar;
+int add(int num1, int num2){
+    int sum = num1 + num2;
+    return sum;
 }
 
-int multiplicar(int n1, int n2){
-	int multiplicar = n1 * n2;
-	return multiplicar;
+int multiply(int num1, int num2){
+    int product = num1 * num2;
+    return product;
 }
 
-int media(int n1, int n2){
-	int media = somar(n1,n2)/2;
-	return media;
+int average(int num1, int num2){
+    int avg = add(num1, num2) / 2;
+    return avg;
 }
 
-void parImpar(int n1){
-	if(n1 %2==0){
-		printf("O número %d é Par", n1);
-	}else{
-		printf("O número %d é Ímpar", n1);
-	}
+void evenOdd(int num){
+    if(num % 2 == 0){
+        printf("The number %d is Even", num);
+    }else{
+        printf("The number %d is Odd", num);
+    }
 }
-
 
 int main(int argc, char *argv[]) {
-	//setlocale(LC_ALL, "portuguese");
-	int n1, n2, op;
-	
-	printf("Digite um número: ");
-	scanf("%d", &n1);
-	printf("Digite mais um número: ");
-	scanf("%d", &n2);
-	
-	system("cls");
-	do{
-	printf("\nChoose one of the options below: "
-	        "\n1 - Enter new numbers"
-			"\n2 - Sum the numbers"
-            "\n3 - Multiplication the numbers"
-            "\n4 - Calculation the average of the numbers"
-            "\n5 - Check if it's even or odd."
- 			"\n0 - Close"
-			"\n--> ");
-    scanf("%d", &op);
+    //setlocale(LC_ALL, "portuguese");
+    int num1, num2, option;
     
-    switch(op){
-    	case 1:
-    		system("cls");
-    		printf("Enter a number: ");
-	        scanf("%d", &n1);
-	        printf("Enter another number: ");
-	        scanf("%d", &n2);
-	    break;
-    	case 2: 
-    	   system("cls");
-    	   printf("----Sum----");
-    	   int soma = somar(n1, n2);
-    	   printf("\nSum result is %d", soma);
-    	break;
-    	case 3:
-    		system("cls");
-    		printf("----Multiplication----");
-    		int mult = multiplicar(n1, n2);
-    		printf("\nMultiplication result is %d", mult);
-    	break;
-    	case 4:
-    		system("cls");
-    		printf("----Average----");
-    		int med = media(n1, n2);
-    		printf("\nAverage result is %d", med);
-    	break;
-    	case 5:
-    		system("cls");
-    		printf("----Odd or even?----\n");
-    		parImpar(n1);
-    	break;
-    	case 0: 
-    	    system("cls");
-    	    printf("\nThanks for using!\n");
-        break;
-    	default:
-    		system("cls");
-    		printf("\nUnvalited option\n");
-	}
-}while(op!=0);
-     if(op == 0){
-     	printf("\n----Thanks for using!----\n");
-	 }		
-	return 0;
+    printf("Enter a number: ");
+    scanf("%d", &num1);
+    printf("Enter another number: ");
+    scanf("%d", &num2);
+    
+    system("cls");
+    do{
+        printf("\nChoose one of the options below: "
+            "\n1 - Enter new numbers"
+            "\n2 - Add the numbers"
+            "\n3 - Multiply the numbers"
+            "\n4 - Calculate the average of the numbers"
+            "\n5 - Check if it's even or odd."
+            "\n0 - Close"
+            "\n--> ");
+        scanf("%d", &option);
+        
+        switch(option){
+            case 1:
+                system("cls");
+                printf("Enter a number: ");
+                scanf("%d", &num1);
+                printf("Enter another number: ");
+                scanf("%d", &num2);
+            break;
+            case 2: 
+                system("cls");
+                printf("----Addition----");
+                int sum = add(num1, num2);
+                printf("\nAddition result is %d", sum);
+            break;
+            case 3:
+                system("cls");
+                printf("----Multiplication----");
+                int product = multiply(num1, num2);
+                printf("\nMultiplication result is %d", product);
+            break;
+            case 4:
+                system("cls");
+                printf("----Average----");
+                int avg = average(num1, num2);
+                printf("\nAverage result is %d", avg);
+            break;
+            case 5:
+                system("cls");
+                printf("----Odd or even?----\n");
+                evenOdd(num1);
+            break;
+            case 0: 
+                system("cls");
+                printf("\nThanks for using!\n");
+            break;
+            default:
+                system("cls");
+                printf("\nInvalid option\n");
+        }
+    }while(option != 0);
+    
+    if(option == 0){
+        printf("\n----Thanks for using!----\n");
+    }       
+    
+    return 0;
 }
